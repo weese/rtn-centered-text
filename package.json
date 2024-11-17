@@ -17,7 +17,7 @@
   ],
   "keywords": ["react-native", "ios", "android"],
   "repository": "https://github.com/<your_github_handle>/rtn-centered-text",
-  "author": "Mahmoud",
+  "author": "<Your Name> <your_email@your_provider.com> (https://github.com/<your_github_handle>)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/<your_github_handle>/rtn-centered-text/issues"

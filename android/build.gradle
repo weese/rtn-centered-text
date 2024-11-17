@@ -7,12 +7,16 @@ buildscript {
     gradlePluginPortal()
   }
   dependencies {
-    classpath("com.android.tools.build:gradle:7.3.1")
+    classpath("com.android.tools.build:gradle")
+    classpath("com.facebook.react:react-native-gradle-plugin")
+    classpath("org.jetbrains.kotlin:kotlin-gradle-plugin")
   }
 }
 
 apply plugin: 'com.android.library'
 apply plugin: 'com.facebook.react'
+apply plugin: 'org.jetbrains.kotlin.android'
+apply plugin: "com.facebook.react.rootproject"
 
 android {
   compileSdkVersion safeExtGet('compileSdkVersion', 33)
