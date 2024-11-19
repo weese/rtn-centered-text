@@ -5,7 +5,6 @@
  * @format
  */
 import React from "react";
-import { Text } from "react-native";
 import { RTNCenteredText } from "rtn-centered-text";
 
 const App: () => JSX.Element = () => {
