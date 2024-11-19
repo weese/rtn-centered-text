@@ -2,10 +2,8 @@ import RTNCenteredText from './RTNCenteredTextNativeComponent';
 
 const CenteredText = ({ text }) => {
     return (
-        <View>
-          <RTNCenteredText text={text} />
-        </View>
+        <RTNCenteredText text={text} />
       );
     }
 
-export { CenteredText };
+export { RTNCenteredText, CenteredText };

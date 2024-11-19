@@ -2,8 +2,50 @@
   "name": "rtn-centered-text",
   "version": "0.0.1",
   "description": "Showcase a Fabric Native Component with a centered text",
-  "react-native": "js/index",
-  "source": "js/index",
+  "main": "dist/commonjs/index.js",
+  "module": "dist/module/index.js",
+  "source": "js/index.js",
+  "react-native": "js/index.js",
+  "scripts": {
+    "prepare": "bob build",
+    "build": "bob build",
+    "start": "react-native start",
+    "start:macos": "react-native start --projectRoot ./ --use-react-native-macos",
+    "ios": "cd example && react-native run-ios",
+    "web": "expo web",
+    "android": "react-native run-android",
+    "macos": "cd example && react-native run-macos",
+    "test": "yarn validate:eslint && yarn validate:flow && yarn validate:typescript && yarn test:jest",
+    "validate:eslint": "eslint 'js/**/*.js' 'example/**/*.js'",
+    "validate:flow": "flow check",
+    "validate:typescript": "tsc --project ./",
+    "test:jest": "jest js/",
+    "test:detox:android:test:debug": "detox test -c android.emu.debug",
+    "test:detox:android:test:release": "detox test -c android.emu.release",
+    "test:detox:android:build:debug": "detox build -c android.emu.debug",
+    "test:detox:android:build:release": "detox build -c android.emu.release",
+    "test:detox:android:bundle:release": "mkdir -p .tmp && react-native bundle --max-workers 4 --platform android --dev false --entry-file example/index.js --bundle-output .tmp/android-bundle.js",
+    "test:detox:ios:test:debug": "detox test -c ios.sim.debug",
+    "test:detox:ios:test:release": "detox test -c ios.sim.release",
+    "test:detox:ios:build:debug": "detox build -c ios.sim.debug",
+    "test:detox:ios:build:release": "detox build -c ios.sim.release",
+    "test:detox:ios:bundle:release": "mkdir -p .tmp && react-native bundle --max-workers 4 --platform ios --dev false --entry-file example/index.js --bundle-output .tmp/ios-bundle.js",
+    "test:detox:clean": "rimraf example/android/build && rimraf example/android/app/build && rimraf example/android/.gradle && rimraf example/ios/build",
+    "ci:publish": "yarn semantic-release",
+    "semantic-release": "semantic-release"
+  },
+  "keywords": [
+    "react-native",
+    "ios",
+    "android"
+  ],
+  "repository": "https://github.com/<your_github_handle>/rtn-centered-text",
+  "author": "<Your Name> <your_email@your_provider.com> (https://github.com/<your_github_handle>)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/<your_github_handle>/rtn-centered-text/issues"
+  },
+  "homepage": "https://github.com/<your_github_handle>/rtn-centered-text#readme",
   "files": [
     "js",
     "android",
@@ -15,22 +57,30 @@
     "!**/__fixtures__",
     "!**/__mocks__"
   ],
-  "keywords": ["react-native", "ios", "android"],
-  "repository": "https://github.com/<your_github_handle>/rtn-centered-text",
-  "author": "<Your Name> <your_email@your_provider.com> (https://github.com/<your_github_handle>)",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/<your_github_handle>/rtn-centered-text/issues"
+  "react-native-builder-bob": {
+    "source": "js",
+    "output": "dist",
+    "targets": [
+      [
+        "commonjs",
+        {
+          "flow": true
+        }
+      ],
+      "module"
+    ]
   },
-  "homepage": "https://github.com/<your_github_handle>/rtn-centered-text#readme",
-  "devDependencies": {},
+  "devDependencies": {
+    "react-native-builder-bob": "^0.32.1"
+  },
   "peerDependencies": {
     "react": "*",
     "react-native": "*"
   },
   "codegenConfig": {
-    "name": "RTNCenteredTextSpecs",
+    "name": "rtncenteredtext",
     "type": "components",
     "jsSrcsDir": "js"
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
